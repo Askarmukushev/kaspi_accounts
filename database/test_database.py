@@ -12,7 +12,7 @@ from database.database import ObjectNotFound
 class TestRAMDatabase:
     # Для всех имплементаций один блок, Запустится два раза - РАМДБ и ПандасДБ
     def test_all_dbs(self) -> None:
-        connection = "dbname = postgres port = 5432 user = postgres password = 12fAQ345gdg$#Q@6 host = localhost"
+        connection = "dbname = postgres port = 5432 user = postgres password = 123456 host = localhost"
         all_implementations = [AccountDatabaseRAM, AccountDatabasePandas]
         for implementation in all_implementations:
             print()
@@ -46,7 +46,7 @@ class TestRAMDatabase:
 
     # Persistent
     def a_test_all_dbs_persistent(self) -> None:
-        connection = "dbname = postgres port = 5432 user = postgres password = 12fAQ345gdg$#Q@6 host = localhost"
+        connection = "dbname = postgres port = 5432 user = postgres password = 123456 host = localhost"
         all_implementations = [AccountDatabasePandas]
         for implementation in all_implementations:
             print()
@@ -72,7 +72,7 @@ class TestRAMDatabase:
                 database.get_object(uuid4())
 
     def test_connection(self) -> None:
-        connection = "dbname = postgres port = 5432 user = postgres password = 12fAQ345gdg$#Q@6 host = localhost"
+        connection = "dbname = postgres port = 5432 user = postgres password = 123456 host = localhost"
         database = AccountDatabasePostgres(connection=connection)
         database.save(Account.random())
         all_accounts = database.get_objects()

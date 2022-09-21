@@ -26,8 +26,7 @@ class AccountDatabasePostgres(AccountDatabase):
     def close_connection(self):
         self.conn.close()
 
-
-    def save(self, account: Account) -> None:
+    def _save(self, account: Account) -> None:
         if account.id_ is None:
             account.id_ = uuid4()
         cur = self.conn.cursor()

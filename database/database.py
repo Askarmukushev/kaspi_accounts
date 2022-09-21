@@ -10,9 +10,14 @@ class ObjectNotFound(ValueError):
 
 
 @dataclass
-class AccountDatabase(ABC):
-    @abstractmethod
+class AccountDatabase(ABC):     # <---- INTERFACE
+
     def save(self, account: Account) -> None:
+        print("I am going to save this: ", account)
+        return self._save(account=account)
+
+    @abstractmethod
+    def _save(self, account: Account) -> None:
         ...
 
     @abstractmethod

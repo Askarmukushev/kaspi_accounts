@@ -18,7 +18,7 @@ class AccountDatabasePandas(AccountDatabase):
         except:
             pass
 
-    def save(self, account: Account) -> None:
+    def _save(self, account: Account) -> None:
         if account.id_ is None:
             account.id_ = uuid4()
 
@@ -56,4 +56,5 @@ class AccountDatabasePandas(AccountDatabase):
             )
             return account
         print("-------------- this  object is not found: ", id_)
+        print(self._objects.info())
         raise ObjectNotFound("Pandas error: object not found!")

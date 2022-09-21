@@ -11,7 +11,7 @@ class AccountDatabaseRAM(AccountDatabase):
         super().__init__(*args, **kwargs)
         self._objects = dict()
 
-    def save(self, account: Account) -> None:
+    def _save(self, account: Account) -> None:
         if account.id_ is None:
             account.id_ = uuid4()
 
